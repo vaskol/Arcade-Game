@@ -2,8 +2,6 @@
 
 #include "GameObjCollRect.h"
 
-
-
 class Bunker : public GameObjCollRect
 {
 protected:			
