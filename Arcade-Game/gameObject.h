@@ -1,23 +1,22 @@
 #pragma once
 
 #include "util.h"
-#include "graphics.h"		//** (for brush) CHECK.
+#include "graphics.h"	
 #include "PNG.h"
-//#include "Collidables.h"
-//#include "config.h"		//<--
 
 
 
-class GameObject //: public Drawable		//na akolouthei to idio public interface me to "Game" ???. gia logous symvatotitas, kliseon kai omoiomorfias.
+
+class GameObject	
 {
 protected:
-	const class Game& game;		// !!! (του "υπόσχομαι" για την κλάση Game, χωρίς να κάνω include)
+	const class Game& game;		
 	float pos_x, pos_y;
-	float size;  //= 0.0f;		// <--
-	float life = 1.0f;		//διάρκεια ζωής, χρόνος που είναι ενεργό το gameObject.
-	bool active = true;		//** CHECK tutorial.
+	float size;  //= 0.0f;		
+	float life = 1.0f;		
+	bool active = true;		
 	
-	//graphics::Brush brush;
+
 
 	PNG draw_gobj_png;		// the png needed for each drawable game object.
 
@@ -30,18 +29,18 @@ public:
 	virtual void draw()=0;
 	virtual void init()=0;
 
-	float getPosX() const { return pos_x; }	//inline (μικρή)
-	float getPosY() const { return pos_y; }	//inline (μικρή)
+	float getPosX() const { return pos_x; }	//inline (Γ¬Γ©ΓªΓ±Γ)
+	float getPosY() const { return pos_y; }	//inline (Γ¬Γ©ΓªΓ±Γ)
 
-	float getSize() const { return size; }	//inline (μικρή)
+	float getSize() const { return size; }	//inline (Γ¬Γ©ΓªΓ±Γ)
 
-	bool isActive() const { return active; }		//** CHECK (const κάπου ???)
+	bool isActive() const { return active; }		
 
-	void drainLife(float amount);		//προς το παρόν εφαρμόζεται μόνο για τον Player (τα άλλα gameObjects είναι απλά active/inactive)
+	void drainLife(float amount);		
 	float getRemainingLife() const { return life; }
 
-	PNG get_draw_gobj_png() const { return draw_gobj_png; }		// <-- δεν χρειάζ πουθενά.
-	void set_draw_gobj_png(PNG& gobjPNG) { draw_gobj_png = gobjPNG; }		//** CHECK ref.
+	PNG get_draw_gobj_png() const { return draw_gobj_png; }		
+	void set_draw_gobj_png(PNG& gobjPNG) { draw_gobj_png = gobjPNG; }		
 
 	void drawSpriteTexture(graphics::Brush& br, float fill_op, const char* path_to_sprite);
 	void drawBrushFill(graphics::Brush& br, float fill_0, float fill_1, float fill_2, float fill_op, bool grad);
