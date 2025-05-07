@@ -2,7 +2,6 @@
 
 #include "graphics.h"
 
-
 class Movable			
 {
 protected:
