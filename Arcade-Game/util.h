@@ -1,11 +1,8 @@
 #pragma once
 
-
 #include <random>
 
 float rand0to1();
-
-
 
 struct Shape		
 {
@@ -36,10 +33,6 @@ struct Rectangle : Shape
 {
 	float rec_width = 0.0f;		//rectangle width
 	float rec_height = 0.0f;		//rectangle height
-
-	/*float x1, y1;		// (x1,y1) is the bottom left rec's corner.
-	float x2, y2;		// (x2, y2) is the top right rec's corner.*/
-
 	float topLeftX = -100.f, topLeftY = -100.0f;		// rectangle's top left corner's coordinates.
 	float botRightX = -100.0f, botRightY = -100.0f;		// rectangle's bottom right corner's coordinates.
 
