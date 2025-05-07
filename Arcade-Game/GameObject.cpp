@@ -1,30 +1,20 @@
 #include "gameobject.h"
 #include "game.h"
 
-
-
 GameObject::GameObject(const Game& mygame, float gobj_pos_x, float gobj_pos_y, float gobj_size)	
 	:game(mygame), pos_x(gobj_pos_x), pos_y(gobj_pos_y), size(gobj_size)
 {
-
 }
 
 void GameObject::update()
 {
-	/*if (life == 0.0f)
-	{
-		active = false;
-	}*/
 	active = life;
 }
-
 
 void GameObject::drainLife(float amount)
 {
 	life = std::max<float>(0.0f, life - amount);
 }
-
-
 
 void GameObject::drawSpriteTexture(graphics::Brush& br, float fill_op, const char* path_to_sprite)
 {
