@@ -1,14 +1,14 @@
 #pragma once
 
-//header file για βοηθητικές/μαθηματικές συναρτήσεις.
+//header file Γ£Γ©Γ΅ ΓΆΓ―Γ§Γ¨Γ§Γ΄Γ©ΓªΓΓ²/Γ¬Γ΅Γ¨Γ§Γ¬Γ΅Γ΄Γ©ΓªΓΓ² Γ³ΓµΓ­Γ΅Γ±Γ΄ΓΓ³Γ¥Γ©Γ².
 
 #include <random>
 
 float rand0to1();
 
-//float Screen2Canvas();		// κάνει αυτή τη μετατροπή.
 
-struct Shape		//** FIX: την εξειδίκευση σε κάθε σχήμα.
+
+struct Shape		
 {
 	float cx = -100.0f; 
 	float cy = -100.0f;
@@ -23,7 +23,7 @@ struct Shape		//** FIX: την εξειδίκευση σε κάθε σχήμα.
 
 struct Disk : Shape
 {
-	float radius = 0.0f;	//ακτίνα
+	float radius = 0.0f;	
 
 	Disk() {}
 
