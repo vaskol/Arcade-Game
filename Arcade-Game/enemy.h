@@ -6,14 +6,14 @@
 
 class Enemy : public GameObjCollDisk, public Movable
 {
-protected:					//κληρονομεί κι ο Alien (-> FIX)
+protected:					
 
-	//graphics::Brush brush;		//-->για τον μετεωρίτη ήταν αυτό.		//** CHECK (++tutorial) //
+		
 
-public:						//public interface
+public:					
 	Enemy(const class Game& mygame);
-	virtual	~Enemy();		//** CHECK
+	virtual	~Enemy();		
 
-	virtual void update() override;		// <--
-	//virtual void draw() = 0;		// <--
+	virtual void update() override;		
+
 };
