@@ -14,14 +14,12 @@ private:
 											// with the minimum possible radius.
 
 public:
-	PNG() {}	// PNG default constructor.		//** CHECK.
+	PNG() {}	// PNG default constructor.		
 
 	// PNG constructor for objects with rectangle collision hull.
 	//PNG(float dims_ratio, float angle, const char* spritePath, const char* shadowPath, float png_obj_width_ratio, float png_obj_height_ratio);
-
 	// PNG constructor for objects with disk collision hull.
 	//PNG(float dims_ratio, float angle, const char* spritePath, const char* shadowPath, float png_obj_radius_ratio);
-
 	// PNG constructor for objects without collision hull (non-collidable objects, e.g. explosion).
 	PNG(float dims_ratio, float angle, const char* spritePath, const char* shadowPath);
 	
