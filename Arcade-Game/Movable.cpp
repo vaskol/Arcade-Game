@@ -1,6 +1,5 @@
 #include "Movable.h"
 
-
 float Movable::move() const
 {
 	if (move_to_east)
