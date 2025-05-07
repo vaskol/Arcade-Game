@@ -2,9 +2,7 @@
 #include "graphics.h"	
 #include "game.h"		
 
-
-//Waits in order to start the game
-
+//Waits few seconds in order to start the game
 Player::Player(const Game& mygame, float pl_pos_x, float pl_pos_y, float pl_size)
 	:GameObjCollDisk(mygame, pl_pos_x, pl_pos_y, pl_size)		
 {
@@ -12,11 +10,10 @@ Player::Player(const Game& mygame, float pl_pos_x, float pl_pos_y, float pl_size
 	speed = 15.0f;		
 }
 
-
 void Player::update()	
 {
 	GameObject::update();
-
+	
 		//Controls with ASDW
 		if (graphics::getKeyState(graphics::SCANCODE_A))	//Aristera.
 		{
@@ -49,50 +46,32 @@ void Player::draw()
 
 	br.outline_opacity = 0.0f;					
 
-	graphics::setOrientation( draw_gobj_png.get_png_orientation() /*-90.0f*/);				
-	
-	
-	/*Draw spaceship's shadow.*/
+	graphics::setOrientation( draw_gobj_png.get_png_orientation());				
 	GameObject::drawSpriteTexture(br, 0.4f, draw_gobj_png.get_path_to_shadow());
 	graphics::drawRect(pos_x - 10.0f, pos_y + size, size, size * draw_gobj_png.get_png_dims_ratio(), br);	
-
-	/**Draw spaceship.*/
 	GameObject::drawSpriteTexture(br, 1.0f, draw_gobj_png.get_path_to_sprite());
 	graphics::drawRect(pos_x, pos_y, size, size * draw_gobj_png.get_png_dims_ratio(), br);	
-
-	graphics::resetPose();										
-	br.texture = "";	 Afou xrisimopoiiso to texture gia na sxediaso to diastimoploio, prepei na to sviso, na min to exo sto brush mou.
-
-
-
+	graphics::resetPose();	
+	
+	br.texture = "";	
 	GameObject::drawBrushFill(br, 1.0f, 0.5f + glow * 0.5f, 0.0f, 1.0f, true);
-
+	
 	br.fill_secondary_opacity = 0.0f;		
 	br.fill_secondary_color[0] = 0.3f;	
 	br.fill_secondary_color[1] = 0.1f;
 	br.fill_secondary_color[2] = 0.0f;
-
-
-	graphics::drawDisk(pos_x - 40 /*(*height)*/, pos_y, 20, br);	
-																
+	
+	graphics::drawDisk(pos_x - 40 /*(*height)*/, pos_y, 20, br);																
 	graphics::resetPose();
-
-
 
 	if (game.getDebugMode())
 	{
 		br.outline_opacity = 1.0f;
 		br.texture = "";
 		GameObject::drawBrushFill(br, /*1.0f,*/ 1.0f, 0.3f, 0.3f, 0.3f, false);
-
-		Disk pl_disk = getCollisionHull(0.533f);			//** CHECK inheritance return type --> äéÜë.
-
+		Disk pl_disk = getCollisionHull(0.533f);			
 		graphics::drawDisk(pl_disk.cx, pl_disk.cy, pl_disk.radius, br);
 	}
 }
-
-void Player::init()		
-{
-	
-}
+void Player::init(){}
 
