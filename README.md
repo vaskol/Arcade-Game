@@ -7,4 +7,6 @@ A simple but thrilling arcade-style game where the player defends a bunker from 
 1. **Install or include SGG**
    - Follow the instructions https://cgaueb.github.io/sgg/page_building_with_sgg.html
    - Include the headers and source files in your project
-   - Wait 10 second in order the game to load and you are free to play
+   - Follow the same folder structure and add your assets folder inside the project folder,as described in the link above
+   - Run the application
+   - Wait 10 seconds in order the game to load and you are free to play!!
