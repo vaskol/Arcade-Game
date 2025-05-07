@@ -42,7 +42,7 @@ void Player::draw()
 {
 	float glow = 0.5f + 0.5f * sinf(graphics::getGlobalTime() / 70.0f);
 
-	graphics::Brush br;					.
+	graphics::Brush br;					
 
 	br.outline_opacity = 0.0f;					
 
