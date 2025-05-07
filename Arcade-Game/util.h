@@ -1,6 +1,5 @@
 #pragma once
 
-//header file ãéá âïçèçôéêÝò/ìáèçìáôéêÝò óõíáñôÞóåéò.
 
 #include <random>
 
