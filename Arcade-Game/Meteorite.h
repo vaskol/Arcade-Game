@@ -2,12 +2,10 @@
 
 #include "Enemy.h"
 
-
 class Meteorite : public Enemy
 {
 protected:
 	float rotation;			
-
 	graphics::Brush brush;		
 
 public:
