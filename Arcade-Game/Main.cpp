@@ -2,8 +2,6 @@
 #include "game.h"
 #include "config.h"
 
-
-
 void resize(int w, int h)
 {
     Game* game = reinterpret_cast<Game*>(graphics::getUserData());
@@ -16,7 +14,6 @@ void update(float ms)
     game->update();
 }
 
-// The window content drawing function.
 void draw()
 {
     Game* game = reinterpret_cast<Game*>(graphics::getUserData());
@@ -33,17 +30,13 @@ int main()
     graphics::setUserData(&mygame);
 
     graphics::setDrawFunction(draw);        //The graphics::startMessageLoop() calls the two "call-backs" functions. Not us.
-    graphics::setUpdateFunction(update);    //(We don't know when they are called.)
+    graphics::setUpdateFunction(update);    
 
     graphics::setCanvasSize(CANVAS_WIDTH, CANVAS_HEIGHT);
     graphics::setCanvasScaleMode(graphics::CANVAS_SCALE_FIT);
 
-    mygame.init();  						//init(): kaleitai prin mpo sto messageloop.
+    mygame.init();  				
     mygame.setDebugMode(false);
     graphics::startMessageLoop(); 
-      
-    //graphics::destroyWindow();
-    //otan pataei exit
-
     return 0;
 }
