@@ -27,32 +27,26 @@ void Game::checkAlien() {
 	if (!aliens.empty()) {
 		for (int i = 0; aliens.size(); i++) {
 			for (list_it = aliens[i].begin(); list_it != aliens[i].end(); list_it++) {
-				if (*list_it && !(*list_it)->isActive()) {			//** FIX   -->  ìå ôá collision alien-plBullet êáé alien-bunker.
+				if (*list_it && !(*list_it)->isActive()) {			
 					delete* list_it;
 					*list_it = nullptr;
-
-					// erase form list ++ from vector.
 				}
 			}
 		} //end of vector for
 	} //end of list for.
 
-	aliens.clear();		//** CHECK.
+	aliens.clear();		
 }
-
-
 
 void Game::spawnMeteorite()		
 {
 	if (!meteorite)
 	{
-		meteorite = new Meteorite(*this);	
-													
-													
+		meteorite = new Meteorite(*this);																										
 	}
 }
 
-void Game::shootBullet(Bullet*& sh_bullet, float sh_pos_x, float sh_pos_y, bool sh)		// pass pointer by reference (it's GameObject because of checkCollision methods).
+void Game::shootBullet(Bullet*& sh_bullet, float sh_pos_x, float sh_pos_y, bool sh)		
 {
 	if (!sh_bullet)
 	{
@@ -64,7 +58,7 @@ void Game::shootBullet(Bullet*& sh_bullet, float sh_pos_x, float sh_pos_y, bool 
 }
 
 
-bool Game::checkCollision_Cir_Cir(Disk& disk_1, Disk& disk_2)		// intersection test circle-circle.		
+bool Game::checkCollision_Cir_Cir(Disk& disk_1, Disk& disk_2)		
 {
 	float Dx = disk_1.cx - disk_2.cx;
 	float Dy = disk_1.cy - disk_2.cy;
@@ -113,7 +107,7 @@ void Game::updateStartScreen()
 void Game::updateLevelScreen()
 {
 	if (!player_initialized && !aliens_initialized &&		
-		!bunkers_initialized && !plBullet_initialized && 	graphics::getGlobalTime() > 1000)		//diorthosi (giati meta apo kathe kinisi ton epanefere sto kentro): kanoume ena state.
+		!bunkers_initialized && !plBullet_initialized && 	graphics::getGlobalTime() > 1000)		
 	{
 
 		player = new Player(*this, CANVAS_WIDTH / 2, CANVAS_HEIGHT / 2, 70.0f);		// png: 377.0f/445.0f
@@ -151,7 +145,7 @@ void Game::updateLevelScreen()
 	/* Collision hulls. */
 	if (player) 
 	{
-		playerHull = player->getCollisionHull(0.533f);		// player's size = 60.0f.		//** FIX: put variable in the class.
+		playerHull = player->getCollisionHull(0.533f);		// player's size = 60.0f.	
 	}
 	if(meteorite)
 	{
@@ -190,29 +184,23 @@ void Game::updateLevelScreen()
 			{
 				if (checkCollision_Rec_Rec(alienBulletHull, bunkerHull))
 				{
-					// ++ explosion.
 					bunkers[i]->drainLife(0.1f);
-
 					delete alienBullet;
 					alienBullet = nullptr;
 				}
 			}
-			if (meteorite)			/* Bunker - meteorite collision. */
+			if (meteorite)			
 			{
 				if (checkCollision_Rec_Cir(bunkerHull, meteoriteHull))
 				{
 					explosion = new Explosion(*this, meteorite->getPosX(), meteorite->getPosY());		// png: 512.0f / 512.0f
-					//explosion_initialized = true;
-
 					bunkers[i]->drainLife(0.2f);
-
 					delete meteorite;
 					meteorite = nullptr;
 				}
 			}
-			if (player)				/* Bunker - player collision. */
-			{
-				//player->checkStopByBunker(bunkers[i]);			//** FIX
+			if (player)			
+			{	
 				if (checkCollision_Rec_Cir(bunkerHull, playerHull))
 				{
 					graphics::playSound(std::string(ASSET_PATH) + "music\\smash-sound.mp3", 0.3f, false);
@@ -223,10 +211,8 @@ void Game::updateLevelScreen()
 			{
 				graphics::playMusic(std::string(ASSET_PATH) + "music\\Bomb.mp3", 0.5f, false, 4000);
 
-				delete bunkers[i];		//óâÞíåé ôï ðåñéå÷üìåíï ôïõ pointer.	//OK
+				delete bunkers[i];		
 				bunkers[i] = nullptr;
-
-				// ++ erase.
 			}
 		}
 	}
@@ -236,7 +222,7 @@ void Game::updateLevelScreen()
 		for (list_it = aliens[i].begin(); list_it != aliens[i].end(); list_it++) {
 			if (*list_it) {
 
-				if (graphics::getGlobalTime() > 13000)		//** CHECK (delay).
+				if (graphics::getGlobalTime() > 13000)	
 				{
 					(*list_it)->update();
 				}
@@ -251,9 +237,6 @@ void Game::updateLevelScreen()
 						playerBullet = nullptr;
 						delete* list_it;
 						*list_it = nullptr;
-
-						// ++ erase from list. ++ (ðéï êÜôù) erase from vector (áð' ôï ôÝëïò).
-
 						alienKills++;
 					}
 				}
