@@ -6,16 +6,15 @@
 class Meteorite : public Enemy
 {
 protected:
-	float rotation;			// ΜΟΝΟ ο μετεωρίτης
+	float rotation;			
 
-	graphics::Brush brush;		//** CHECK (++tutorial) //
+	graphics::Brush brush;		
 
 public:
-	Meteorite(const class Game& mygame);		//Τα άλλα αρχικ/νται στην init().
+	Meteorite(const class Game& mygame);		
 	~Meteorite();
 
-	void update() override;		//override: ως αναμνηστικό (για να θυμόμαστε).
+	void update() override;		
 	void draw() override;
 	void init() override;
-	//Shape* getCollisionHull() const override;
 };
