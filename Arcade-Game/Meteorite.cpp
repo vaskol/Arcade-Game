@@ -18,7 +18,7 @@ void Meteorite::update()
 {
 	Enemy::update();
 
-	rotation += 0.05f /*(μοίρες)*/ * graphics::getDeltaTime();
+	rotation += 0.05f /*(Γ¬Γ―ΓΓ±Γ¥Γ²)*/ * graphics::getDeltaTime();
 	rotation = fmodf(rotation, 360);
 
 	if (pos_x < -size)
@@ -51,14 +51,14 @@ void Meteorite::draw()
 
 		GameObject::drawBrushFill(br, 0.3f, 1.0f, 0.3f, 0.3f, false);
 
-		Disk met_disk = getCollisionHull(0.45f);			//** CHECK inheritance return type --> διάλ.
+		Disk met_disk = getCollisionHull(0.45f);			//** CHECK inheritance return type --> Γ¤Γ©ΓΓ«.
 		graphics::drawDisk(met_disk.cx, met_disk.cy, met_disk.radius, br);
 	}
 }
 
 void Meteorite::init()		/* CHECK -> tutorial */
 {
-	size = 50 + 100 * rand0to1();			//Αρχική θέση μετεωρίτη.
+	size = 50 + 100 * rand0to1();			//ΓΓ±Γ·Γ©ΓªΓ Γ¨ΓΓ³Γ§ Γ¬Γ¥Γ΄Γ¥ΓΉΓ±ΓΓ΄Γ§.
 	pos_x = CANVAS_WIDTH + 1.1f * size;
 	pos_y = CANVAS_HEIGHT * rand0to1();
 
@@ -66,8 +66,3 @@ void Meteorite::init()		/* CHECK -> tutorial */
 	rotation = 360 * rand0to1();
 }
 
-/*
-Shape* Meteorite::getCollisionHull() const {
-	Disk met_disk = Disk(pos_x, pos_y, size * 0.42f);			//** FIX: να είναι διαφορετικό σε alien - meteorite (-> με παράμετρο ??)
-	return &met_disk;
-}*/
