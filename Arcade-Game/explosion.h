@@ -3,8 +3,6 @@
 #include <stdlib.h>			
 #include "gameObject.h"
 
-
-
 class Explosion : public GameObject		
 {
 protected:
@@ -13,7 +11,6 @@ protected:
 	float rotation;	
 	float size;			
 	float speed=0.0f;	
-	
 	graphics::Brush brush;	
 
 public:
